@@ -1,0 +1,243 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{datetime2}
+\usepackage{pgfplots}
+
+\definecolor{darkskyblue}{rgb}{0.0, 0.5, 1.0}
+\definecolor{skyblue}{RGB}{135, 206, 235}
+\usepackage{wrapfig}
+\usepackage{circuitikz}
+
+\geometry{a4paper, top=0.7in, left=1in, right=1in, bottom=1in}
+
+\begin{document}
+
+\pagestyle{empty} % Start with empty page style
+
+\thispagestyle{fancy} % Apply fancy style only to the first page
+\fancyhf{} % Clear header and footer
+\renewcommand{\headrulewidth}{0pt} % Remove header rule
+
+\fancyhead[L]{% Left header
+	\includegraphics[width=8cm, height=1.7cm]{i.png} % Adjust dimensions
+}
+\fancyhead[R]{% Right header
+    Name: Sritama Biswas \\
+    Batch: COMETFWC011 \\
+    Date: 26 march 2025 
+}
+
+\vspace{10cm}
+\begin{center}
+   
+    {\LARGE \textbf{\textcolor{darkskyblue}{\\  GATE QUESTION \\ ECE 2009 Q38}}}
+\end{center}
+
+\vspace{-1cm} %adjust vertical space
+
+\section*{\textcolor{blue}{\\Question}}
+Q38) Refer to the NAND and NOR latches shown in the figure. The inputs $(P_1, P_2)$ for both the latches are first made (0,1) and then, after a few seconds, made (1,1). The corresponding stable outputs $(Q_1, Q_2)$ are:
+
+\vspace{1cm}
+\noindent
+\resizebox{0.48\textwidth}{!}{
+\begin{circuitikz}
+    \node[nand port,scale=1] (NAND1) at (0,2) {};
+    \node[anchor=east] at (1,2) {$Q_1$};
+    \node[anchor=east] at (1,0) {$Q_2$};
+    \node[nand port,scale=1] (NAND2) at (0,0) {};
+    \draw (NAND1.in 1) -- ++(-1,0) node[anchor=east] {$P_1$};
+    \draw (NAND2.in 2) -- ++(-1,0) node[anchor=east] {$P_2$};
+    \draw (NAND1.out) -- ++(0,-0.5) -- ($(NAND2.in 1) +(0,0.5)$) -- (NAND2.in 1);
+    \draw (NAND2.out) -- ++(0,+0.5) -- ($(NAND1.in 2) +(0,-0.5)$) -- (NAND1.in 2);
+\end{circuitikz}
+}\hfill
+\resizebox{0.48\textwidth}{!}{
+\begin{circuitikz}
+    \node[nor port,scale=1] (NOR1) at (0,2) {};
+    \node[anchor=east] at (1,2) {$Q_1$};
+    \node[anchor=east] at (1,0) {$Q_2$};
+    \node[nor port,scale=1] (NOR2) at (0,0) {};
+    \draw (NOR1.in 1) -- ++(-1,0) node[anchor=east] {$P_1$};
+    \draw (NOR2.in 2) -- ++(-1,0) node[anchor=east] {$P_2$};
+    \draw (NOR1.out) -- ++(0,-0.5) -- ($(NOR2.in 1) +(0,0.5)$) -- (NOR2.in 1);
+    \draw (NOR2.out) -- ++(0,+0.5) -- ($(NOR1.in 2) +(0,-0.5)$) -- (NOR1.in 2);
+\end{circuitikz}
+}
+
+\vspace{1cm}
+\textbf{Options:}
+\begin{enumerate}
+    \item[(A)] NAND: first (0,1) then (0,1), NOR: first (1,0) then (0,0)
+    \item[(B)] NAND: first (1,0) then (1,0), NOR: first (1,0) then (1,0)
+    \item[(C)] NAND: first (1,0) then (1,0), NOR: first (1,0) then (0,0)
+    \item[(D)] NAND: first (1,0) then (1,1), NOR: first (0,1) then (0,1)
+\end{enumerate}
+
+\section*{\textcolor{blue}{Solution}}
+
+\subsection*{1. NAND Latch Analysis}
+The NAND latch consists of two cross-coupled NAND gates, with outputs given by:
+
+\[
+Q_1 = \overline{P_1 \cdot Q_2}, \quad Q_2 = \overline{P_2 \cdot Q_1}
+\]
+
+\textbf{Step 1: Inputs (0,1)}
+\[
+Q_1 = \overline{0 \cdot Q_2} = \overline{0} = 1
+\]
+\[
+Q_2 = \overline{1 \cdot Q_1} = \overline{1} = 0
+\]
+\textbf{Output:} \( (Q_1, Q_2) = (1,0) \)
+
+\textbf{Step 2: Inputs (1,1)}
+\[
+Q_1 = \overline{1 \cdot Q_2} = \overline{1 \cdot 0} = \overline{0} = 1
+\]
+\[
+Q_2 = \overline{1 \cdot Q_1} = \overline{1 \cdot 1} = \overline{1} = 0
+\]
+\textbf{Output:} \( (Q_1, Q_2) = (1,0) \)
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\raisebox{-0.5ex}[0pt][0pt]{A} & \raisebox{-0.5ex}[0pt][0pt]{B} & \raisebox{-0.5ex}[0pt][0pt]{$\overline{A \cdot B}$} \\  % Increase height for this row
+\hline
+0 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+\hline
+\end{tabular}
+\caption{Truth Table for NAND Gate}
+\end{table}
+
+\vspace{-0.8cm}
+\subsection*{2. NOR Latch Analysis}
+The NOR latch consists of two cross-coupled NOR gates, with outputs given by:
+
+\[
+Q_1 = \overline{P_1 + Q_2}, \quad Q_2 = \overline{P_2 + Q_1}
+\]
+
+\textbf{Step 1: Inputs (0,1)}
+\[
+Q_1 = \overline{0 + Q_2} = \overline{0} = 1
+\]
+\[
+Q_2 = \overline{1 + Q_1} = \overline{1} = 0
+\]
+\textbf{Output:} \( (Q_1, Q_2) = (1,0) \)
+
+\textbf{Step 2: Inputs (1,1)}
+\[
+Q_1 = \overline{1 + Q_2} = \overline{1} = 0
+\]
+\[
+Q_2 = \overline{1 + Q_1} = \overline{1} = 0
+\]
+\textbf{Output:} \( (Q_1, Q_2) = (0,0) \)
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\raisebox{-0.5ex}[0pt][0pt]{A} & \raisebox{-0.5ex}[0pt][0pt]{B} & \raisebox{-0.5ex}[0pt][0pt]{$\overline{A + B}$} \\  % Increase height for this row
+\hline
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+\hline
+\end{tabular}
+\caption{Truth Table for NOR Gate}
+\end{table}
+
+\vspace{-1cm}
+\section*{\textcolor{blue}{Final Answer}}
+- \textbf{NAND latch:} First (1,0), then (1,0)
+- \textbf{NOR latch:} First (1,0), then (0,0)
+
+\textbf{\textcolor{green}{Correct Option:} (C)}
+\vspace{1cm}
+\textbf{Truth Table for NAND and NOR Latches}
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Time Step} & \textbf{Input $(P_1, P_2)$} & \multicolumn{2}{c|}{\textbf{NAND Latch Output $(Q_1, Q_2)$}} & \multicolumn{2}{c|}{\textbf{NOR Latch Output $(Q_1, Q_2)$}} \\
+        \hline
+        1 & (0,1) & 1 & 0 & 1 & 0 \\
+        \hline
+        2 & (1,1) & 1 & 0 & 0 & 0 \\
+        \hline
+    \end{tabular}
+    \caption{State Table for NAND and NOR Latches}
+    \label{tab:latch_states}
+\end{table}
+
+
+\section*{Timing Diagram for NAND and NOR Latches}
+
+\begin{tikzpicture}
+    % Time axis
+    \draw[->] (0,0) -- (10,0) node[right] {Time};
+    
+    % NAND Latch Signals
+    \draw (0,3) node[left] {$Q_1$ (NAND)} -- (2,3) -- (2,3) -- (8,3) -- (10,3);
+    \draw (0,2) node[left] {$Q_2$ (NAND)} -- (2,2) -- (2,2) -- (8,2) -- (10,2);
+
+    % NOR Latch Signals
+    \draw (0,-1) node[left] {$Q_1$ (NOR)} -- (2,-1) -- (2,-2) -- (8,-2) -- (10,-2);
+    \draw (0,-2) node[left] {$Q_2$ (NOR)} -- (2,-2) -- (2,-1) -- (8,-3) -- (10,-3);
+
+    % Time markers
+    \foreach \x in {2,8} {
+        \draw[dashed] (\x,-3.5) -- (\x,4);
+    }
+    
+    % Labels for transitions
+    \node[above] at (2,3) {(1,0)};
+    \node[above] at (8,3) {(1,0)};
+    \node[below] at (2,-1) {(1,0)};
+    \node[below] at (8,-1) {(0,0)};
+
+\end{tikzpicture}
+
+\begin{center}
+\section*{Graph for NAND and NOR Latches}
+    \begin{tikzpicture}[scale=2] 
+
+        % Extend and label x-axis
+        \draw[thick,->] (-2,0) -- (2,0) node[right] {\textbf{x}}; 
+        
+        % Extend and label y-axis
+        \draw[thick,->] (0,-2) -- (0,2) node[above] {\textbf{y}}; 
+
+        % Draw the red diagonal line
+        \draw[red, thick] (-0.5,1.5) -- (1.5,-0.5);
+
+       
+
+        % Add labels
+        \node at (0.1,1.1) {\textcolor{red}{\textbf{(0,1)}}};
+        \node at (1.1,-0.1) {\textcolor{red}{\textbf{(1,0)}}};
+        \node at (-0.1,-0.1) {\textbf{O}};
+
+    \end{tikzpicture}
+\end{center}
+\end{document}
