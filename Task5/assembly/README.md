@@ -27,7 +27,7 @@ Example: Using USBasp with ATmega328P
 avrdude -c usbasp -p m328p -U flash:w:vending.hex
 
 #If you're using Arduino Uno as ISP, the command becomes:
-avrdude -c arduino -P /dev/ttyUSB0 -b 19200 -p m328p -U flash:w:vending.hex
+avrdude -c arduino -p m328p -P /dev/ttyACM0 -b 115200 -U flash:w:main.hex:i
 
 [Replace /dev/ttyUSB0 with your port (use dmesg | grep tty to find it).
 -p m328p: Chip type ATmega328P
