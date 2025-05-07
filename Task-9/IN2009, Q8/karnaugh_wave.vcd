@@ -1,0 +1,84 @@
+$date
+	Wed May  7 13:15:20 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_karnaugh_map $end
+$var wire 1 ! F $end
+$var reg 1 " P $end
+$var reg 1 # Q $end
+$var reg 1 $ R $end
+$var reg 1 % S $end
+$scope module uut $end
+$var wire 1 ! F $end
+$var wire 1 " P $end
+$var wire 1 # Q $end
+$var wire 1 $ R $end
+$var wire 1 % S $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1!
+1%
+#20000
+0!
+1$
+0%
+#30000
+1!
+1%
+#40000
+0!
+1#
+0$
+0%
+#50000
+1!
+1%
+#60000
+0!
+1$
+0%
+#70000
+1!
+1%
+#80000
+1"
+0#
+0$
+0%
+#90000
+1%
+#100000
+0!
+1$
+0%
+#110000
+1%
+#120000
+0!
+1#
+0$
+0%
+#130000
+1!
+1%
+#140000
+1$
+0%
+#150000
+1%
+#160000
