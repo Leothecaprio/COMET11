@@ -1,0 +1,155 @@
+C Basics Seminar List
+
+1. **Type of Programming Languages**
+
+   * Low-Level Languages: Machine and Assembly languages.
+   * High-Level Languages: Procedural (C, Pascal), Object-Oriented (C++, Java), Scripting (Python, JavaScript).
+
+2. **GCC Compilation Stages and How to Stop Each Stage**
+
+   * Preprocessing: `gcc -E file.c`
+   * Compilation: `gcc -S file.c`
+   * Assembly: `gcc -c file.s`
+   * Linking: `gcc file.o`
+
+3. **Character Set and Escape Sequences**
+
+   * Characters: Letters, digits, special characters, and whitespaces.
+   * Escape sequences: `\n`, `\t`, `\\`, `\"`, `\'`, `\a`, `\b`
+
+4. **Keywords, Identifiers, Constants and Data Types**
+
+   * Keywords: Reserved words (e.g., int, return, if)
+   * Identifiers: Names for variables/functions
+   * Constants: Fixed values (e.g., 10, 'A', 3.14)
+   * Data types: int, char, float, double
+
+5. **Variables, Declaration and Initialization**
+
+   * Declaration: `int a;`
+   * Initialization: `int a = 10;`
+
+6. **Arithmetic, Increment and Decrement Operators**
+
+   * `+`, `-`, `*`, `/`, `%`, `++`, `--`
+
+7. **Assignment Operators**
+
+   * `=`, `+=`, `-=`, `*=`, `/=`, `%=`
+
+8. **Conditional Operator**
+
+   * Syntax: `condition ? expr1 : expr2;`
+
+9. **Comma Operator**
+
+   * Syntax: `(expr1, expr2, ..., exprN)`
+
+10. **Sizeof() Operator**
+
+    * Returns size of variable/type in bytes: `sizeof(int)`
+
+11. **Bitwise Operators**
+
+    * `&`, `|`, `^`, `~`, `<<`, `>>`
+
+12. **Block Statements: if, if else, else if ladder**
+
+    * Syntax: `if (cond) { } else if (cond) { } else { }`
+
+13. **Switch Statement**
+
+    * Syntax: `switch(variable) { case val: break; default: }`
+
+14. **Loops: while, do-while, for loop**
+
+    * `while (cond) {}`
+    * `do { } while (cond);`
+    * `for(init; cond; inc) {}`
+
+15. **Jump Statements: break, goto, continue**
+
+    * `break`: Exit loop/switch
+    * `continue`: Skip iteration
+    * `goto label;`
+
+16. **Functions: Declaration, Call, Definition**
+
+    * Declaration: `int sum(int, int);`
+    * Definition: `int sum(int a, int b) { return a + b; }`
+    * Call: `sum(2,3);`
+
+17. **Library vs User-defined Functions**
+
+    * Library: Standard (e.g., printf)
+    * User-defined: Written by user.
+    * Own header: `#include "myheader.h"`
+
+18. **Auto and Register Storage Classes**
+
+    * auto: Default local storage (stack memory).
+    * register: Suggests storing in CPU register (faster access, no address).
+
+19. **Static Storage Class**
+
+    * Remembers value between function calls.
+    * Stored in data segment (not stack).
+
+20. **Extern Storage Class**
+
+    * Used to access global variable from other files.
+    * Declaration only, not definition.
+
+21. **Arrays: Declaration, Accessing, Processing**
+
+    * Declaration: `int arr[5];`
+    * Accessing: `arr[0] = 10;`
+    * Processing: Looping through elements.
+
+22. **Initialization of 1-D Array**
+
+    * `int arr[] = {1,2,3,4,5};`
+
+23. **Sharing Array as Argument**
+
+    * Function definition: `void display(int arr[], int size);`
+    * Arrays are passed by reference.
+
+24. **String Literals and Variables**
+
+    * String literal: `"Hello"`
+    * String variable: `char str[10];`
+
+25. **String Library Functions**
+
+    * `strlen(str)`: length of string
+    * `strcpy(dest, src)`: copy
+    * `strcat(dest, src)`: concatenate
+    * `strcmp(s1, s2)`: compare
+
+26. **Pointers Introduction**
+
+    * Pointer stores address of another variable.
+    * Example: `int *p = &a;`
+
+27. **Pointers: Call by Value vs Reference**
+
+    | Feature    | Call by Value                            | Call by Reference                       |
+    | ---------- | ---------------------------------------- | --------------------------------------- |
+    | Parameters | Copies of values are passed              | Addresses of variables are passed       |
+    | Changes    | No effect on original variables          | Changes affect original variables       |
+    | Memory     | Uses more memory (for copies)            | More efficient memory usage             |
+    | Use Case   | When original data should not be changed | When original data needs to be modified |
+
+28. **Compilation Stages in Detail**
+
+    * Preprocessing: Handles macros, includes, etc.
+    * Compilation: Converts code to assembly.
+    * Assembly: Converts to machine code.
+    * Linking: Combines object files into executable.
+
+29. **Preprocessor Directives**
+
+    * `#include`: Include files
+    * `#define`: Define macros
+    * `#ifdef`, `#ifndef`, `#endif`: Conditional compilation

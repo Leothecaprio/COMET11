@@ -1,0 +1,10 @@
+2. Differences between Call by Value and Call by Reference
+
+Feature               | Call by Value                              | Call by Reference
+----------------------|--------------------------------------------|-------------------------------
+Parameters            | Copies of values are passed.               | Addresses of variables are passed.
+Changes               | Changes inside the function do not         | Changes inside the function affect
+                      | affect the original variables.             | the original variables.
+Memory                | Uses more memory (for copies).             | More efficient in terms of memory.
+Use Case              | When you don't want the function to        | When you want the function to modify
+                      | modify the original variables.             | the original variables.
