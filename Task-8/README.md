@@ -1,5 +1,4 @@
-
-Here is a complete README.md file for your project, formatted in Markdown and ready to include in your repository:
+Gate Question IN2009, Q8 implemented in hardware vaman board using arm
 
 ````markdown
 # ESP32 (VAMAN) + 1602A LCD + PlatformIO Setup Guide
